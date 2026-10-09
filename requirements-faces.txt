@@ -1,0 +1,25 @@
+# Face-recognition dependencies, installed WITHOUT needing a C++ compiler.
+#
+# Use it in TWO steps (the second one is the important trick):
+#
+#     pip install -r requirements-faces.txt
+#     pip install face_recognition --no-deps
+#
+# Why it's split like this:
+#   * dlib-bin        -> prebuilt dlib wheels, so there is NO Visual Studio /
+#                        CMake source build. (Verified working on Python 3.14.)
+#   * setuptools<81   -> face_recognition_models still imports `pkg_resources`,
+#                        which setuptools removed in v81. Pinning below 81 keeps
+#                        it available.
+#   * face_recognition is then installed with --no-deps so pip does NOT pull the
+#     *source* `dlib` package (which would try to compile and likely fail).
+#
+# Raspberry Pi note: dlib-bin ships wheels for common platforms including
+# aarch64. If pip can't find one for your Pi, fall back to building dlib from
+# source -- see the README's Raspberry Pi section.
+
+dlib-bin
+face_recognition_models
+pillow
+click
+setuptools<81
