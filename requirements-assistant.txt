@@ -1,0 +1,15 @@
+# Extra dependencies for the voice assistant (assistant.py).
+# Install on top of the core requirements:
+#
+#     pip install -r requirements-assistant.txt
+#
+# You also need:
+#   * a Groq API key in the GROQ_API_KEY environment variable
+#     (free at https://console.groq.com/keys)
+#   * a microphone and speakers
+#   * Raspberry Pi / Linux only:  sudo apt install espeak-ng libportaudio2
+#     (espeak-ng = the voice for pyttsx3; libportaudio2 = the mic for sounddevice)
+
+groq>=0.11.0          # Groq API client (speech-to-text + chat LLM)
+sounddevice>=0.4.6    # microphone capture (bundles PortAudio on Windows/macOS)
+pyttsx3>=2.90         # offline text-to-speech (SAPI5 on Windows, espeak on Linux)

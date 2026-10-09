@@ -1,0 +1,16 @@
+# Core dependencies -- OBJECT DETECTION.
+# Installs cleanly in one shot on every platform:
+#
+#     pip install -r requirements.txt
+#
+# This alone is enough to run object detection:
+#
+#     python recognize.py --no-faces
+#
+# FACE RECOGNITION has a few extra, no-compiler steps that can't live in this
+# file (it needs a prebuilt dlib and a --no-deps install to avoid a slow source
+# build). See requirements-faces.txt and the README's "Enable face recognition".
+
+ultralytics>=8.0.0      # YOLOv8 (pulls in torch, torchvision, numpy, pillow)
+opencv-python>=4.8.0    # webcam capture + drawing + display window
+numpy>=1.24.0           # array math (also required by the libraries above)
